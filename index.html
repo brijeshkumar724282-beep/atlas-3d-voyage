@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Voyage | An Immersive 3D Scroll Journey</title>
+<meta name="description" content="Atlas Voyage is an immersive 3D scroll journey through Depart, Orbit and Land.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="scene veil" aria-hidden="true"></div>
+
+<div class="progress track" aria-hidden="true">
+  <div class="progress fill" id="progressFill"></div>
+</div>
+
+<header class="nav" id="siteNav">
+  <div class="nav inner">
+    <a class="brand" href="#start" data-scroll="#start">
+      <span class="brand mark" aria-hidden="true"></span>
+      <span class="brand text">Atlas Voyage</span>
+    </a>
+    <nav class="nav links" id="navLinks" aria-label="Primary">
+      <a href="#start" data-scroll="#start" class="is active">Start</a>
+      <a href="#depart" data-scroll="#depart">Depart</a>
+      <a href="#orbit" data-scroll="#orbit">Orbit</a>
+      <a href="#land" data-scroll="#land">Land</a>
+      <a href="#highlights" data-scroll="#highlights">Highlights</a>
+      <a href="#contact" data-scroll="#contact">Contact</a>
+    </nav>
+    <div class="nav cta">
+      <a href="#contact" data-scroll="#contact" class="btn small">Join the crew</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<aside class="dots" id="dots" aria-label="Chapter progress">
+  <button data-scroll="#start" aria-label="Go to Start" class="dot active"><i></i></button>
+  <button data-scroll="#depart" aria-label="Go to Depart" class="dot"><i></i></button>
+  <button data-scroll="#orbit" aria-label="Go to Orbit" class="dot"><i></i></button>
+  <button data-scroll="#land" aria-label="Go to Land" class="dot"><i></i></button>
+  <button data-scroll="#highlights" aria-label="Go to Highlights" class="dot"><i></i></button>
+  <button data-scroll="#contact" aria-label="Go to Contact" class="dot"><i></i></button>
+</aside>
+
+<main>
+
+  <section class="hero" id="start">
+    <div class="hero inner">
+      <p class="eyebrow reveal">An immersive scroll journey</p>
+      <h1 class="hero title">
+        <span class="line">Sail the stars</span>
+        <span class="line accent">in one scroll</span>
+      </h1>
+      <p class="hero sub reveal">Atlas Voyage is a living sky map that moves as you move. Scroll to travel through three chapters of light, shape and sound.</p>
+      <div class="hero actions reveal">
+        <a href="#depart" data-scroll="#depart" class="btn primary">Begin the voyage</a>
+        <a href="#highlights" data-scroll="#highlights" class="btn ghost">See highlights</a>
+      </div>
+      <div class="hero meta reveal">
+        <div class="meta item"><strong>Live canvas</strong><span>Three.js starfield</span></div>
+        <div class="meta item"><strong>Smooth motion</strong><span>Lenis plus GSAP</span></div>
+        <div class="meta item"><strong>Three chapters</strong><span>Depart Orbit Land</span></div>
+      </div>
+    </div>
+    <a class="cue" href="#depart" data-scroll="#depart" aria-label="Scroll to begin">
+      <span class="cue text">Scroll to begin</span>
+      <span class="cue wheel" aria-hidden="true"><span class="cue drop"></span></span>
+    </a>
+  </section>
+
+  <section class="chapters head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Pinned chapters</p>
+      <h2 class="h2 reveal">Three chapters, one voyage</h2>
+      <p class="lede reveal">Each chapter pins into view while the sky behind you shifts. Keep scrolling and the scene answers.</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="depart">
+    <div class="chapter pin">
+      <div class="card solid amber reveal">
+        <p class="card no">Chapter 01</p>
+        <h3>Depart</h3>
+        <p>Leave the harbor of the familiar. Lights gather, engines hum, and the sky opens above you.</p>
+        <ul>
+          <li>Launch sequence</li>
+          <li>Star calibration</li>
+          <li>Crew briefing</li>
+        </ul>
+        <div class="card foot"><span class="pill">Scene shifts amber</span><span class="pill dim">Speed rises</span></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage visual v1" aria-hidden="true">
+          <span class="orb"></span><span class="ring"></span><span class="bar"></span>
+        </div>
+        <div class="stage caption">
+          <strong>Lift off</strong>
+          <span>Shapes gather close and the starfield rushes past.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="orbit">
+    <div class="chapter pin">
+      <div class="card solid paper reveal">
+        <p class="card no">Chapter 02</p>
+        <h3>Orbit</h3>
+        <p>Float in the quiet middle of the trip. Trace clean arcs around bright worlds and watch light bend.</p>
+        <ul>
+          <li>Gravity balance</li>
+          <li>Route tracing</li>
+          <li>Signal check</li>
+        </ul>
+        <div class="card foot"><span class="pill">Scene turns bright</span><span class="pill dim">Drift slows</span></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage visual v2" aria-hidden="true">
+          <span class="planet"></span><span class="arc a1"></span><span class="arc a2"></span><span class="moon"></span>
+        </div>
+        <div class="stage caption">
+          <strong>Weightless pause</strong>
+          <span>The camera widens and forms spread into a slow ring.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="land">
+    <div class="chapter pin">
+      <div class="card solid deep reveal">
+        <p class="card no">Chapter 03</p>
+        <h3>Land</h3>
+        <p>Touch down on new ground. Dust settles, beacons glow, and your map fills with places to return to.</p>
+        <ul>
+          <li>Surface scan</li>
+          <li>Beacon planting</li>
+          <li>Map unlock</li>
+        </ul>
+        <div class="card foot"><span class="pill">Scene cools blue</span><span class="pill dim">Shapes settle</span></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage visual v3" aria-hidden="true">
+          <span class="ground"></span><span class="beacon b1"></span><span class="beacon b2"></span><span class="beacon b3"></span>
+        </div>
+        <div class="stage caption">
+          <strong>Arrival</strong>
+          <span>Forms land softly and the stars hold still above you.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights" id="highlights">
+    <div class="wrap">
+      <p class="eyebrow reveal">Highlights</p>
+      <h2 class="h2 reveal">Small wonders along the way</h2>
+      <p class="lede reveal">Six solid cards from the voyage. Hover to tilt each one and feel the depth.</p>
+
+      <div class="stats reveal">
+        <div class="stat"><strong><span class="count" data-count="1200">0</span></strong><span>Stars charted</span></div>
+        <div class="stat"><strong><span class="count" data-count="48">0</span></strong><span>Worlds visited</span></div>
+        <div class="stat"><strong><span class="count" data-count="96">0</span></strong><span>Light years crossed</span></div>
+        <div class="stat"><strong><span class="count" data-count="32">0</span></strong><span>Crew stories saved</span></div>
+      </div>
+
+      <div class="grid">
+        <article class="tile tilt reveal">
+          <div class="art a1" aria-hidden="true"><span class="s1"></span><span class="s2"></span></div>
+          <h4>Star Atlas</h4>
+          <p>A living map of every beacon you pass. Tap a star to read its story.</p>
+        </article>
+        <article class="tile tilt reveal">
+          <div class="art a2" aria-hidden="true"><span class="s1"></span><span class="s2"></span></div>
+          <h4>Shape Field</h4>
+          <p>Solid forms drift and turn. They answer to your cursor and your scroll.</p>
+        </article>
+        <article class="tile tilt reveal">
+          <div class="art a3" aria-hidden="true"><span class="s1"></span><span class="s2"></span></div>
+          <h4>Light Trails</h4>
+          <p>Every move leaves a ribbon of amber light that fades softly behind you.</p>
+        </article>
+        <article class="tile tilt reveal">
+          <div class="art a4" aria-hidden="true"><span class="s1"></span><span class="s2"></span></div>
+          <h4>Sound Field</h4>
+          <p>A quiet pulse that rises as you climb higher through the chapters.</p>
+        </article>
+        <article class="tile tilt reveal">
+          <div class="art a5" aria-hidden="true"><span class="s1"></span><span class="s2"></span></div>
+          <h4>Orbit Paths</h4>
+          <p>Clean arcs show your route around each planet you visit.</p>
+        </article>
+        <article class="tile tilt reveal">
+          <div class="art a6" aria-hidden="true"><span class="s1"></span><span class="s2"></span></div>
+          <h4>Landing Lens</h4>
+          <p>Zoom close on new worlds with crisp detail and calm motion.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact grid2">
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2">Say hello</h2>
+        <p class="lede">Tell us where you want to go next. We reply within two days.</p>
+        <ul class="points">
+          <li><strong>Crew deck</strong><span>hello at atlas voyage site</span></li>
+          <li><strong>Launch base</strong><span>Port 8000, Sky Harbor</span></li>
+          <li><strong>Open hours</strong><span>Every day, sunrise to star rise</span></li>
+        </ul>
+      </div>
+      <form class="form reveal" id="contactForm" novalidate>
+        <label>Your name
+          <input type="text" name="name" id="fName" placeholder="Ada Starling" autocomplete="name">
+          <small class="err" id="eName"></small>
+        </label>
+        <label>Email
+          <input type="email" name="email" id="fEmail" placeholder="ada at star mail dot com" autocomplete="email">
+          <small class="err" id="eEmail"></small>
+        </label>
+        <label>Message
+          <textarea name="message" id="fMsg" rows="5" placeholder="I want to voyage to the amber nebula with my class"></textarea>
+          <small class="err" id="eMsg"></small>
+        </label>
+        <button class="btn primary full" type="submit">Send message</button>
+        <p class="form ok" id="formOk" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer inner">
+    <div>
+      <p class="brand text">Atlas Voyage</p>
+      <p class="muted">Built for dreamers who look up.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#depart" data-scroll="#depart">Depart</a>
+      <a href="#orbit" data-scroll="#orbit">Orbit</a>
+      <a href="#land" data-scroll="#land">Land</a>
+      <a href="#contact" data-scroll="#contact">Contact</a>
+    </nav>
+    <button class="btn ghost" id="toTop">Back to top</button>
+  </div>
+  <div class="wrap base">
+    <p class="muted">2026 Atlas Voyage. All rights reserved.</p>
+    <p class="muted">Solid color craft. No image needed.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
